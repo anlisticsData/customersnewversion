@@ -1,0 +1,12 @@
+{
+    "name": "edi/analistics-v4",
+    "autoload": {
+        "psr-4": {
+            "Analistics\\Customers\\": "src/"
+        }
+    },
+    "require": {
+        "gabordemooij/redbean": "dev-master",
+        "analistics/analistics-data-integrations": "^1.2"
+    }
+}

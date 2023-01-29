@@ -1,0 +1,100 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2e4f046c7b9187dc4a9987d11cdeb35d",
+    "packages": [
+        {
+            "name": "analistics/analistics-data-integrations",
+            "version": "v1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anlisticsData/analistics-data-integrations.git",
+                "reference": "9666a9a204afbda1963bf96c26df1190f80f8cb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anlisticsData/analistics-data-integrations/zipball/9666a9a204afbda1963bf96c26df1190f80f8cb5",
+                "reference": "9666a9a204afbda1963bf96c26df1190f80f8cb5",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PlugAnalistics\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "EdilsonCsilva",
+                    "email": "analisticsdataprojetos@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/anlisticsData/analistics-data-integrations/issues",
+                "source": "https://github.com/anlisticsData/analistics-data-integrations/tree/v1.2.4"
+            },
+            "time": "2022-12-12T12:39:04+00:00"
+        },
+        {
+            "name": "gabordemooij/redbean",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabordemooij/redbean.git",
+                "reference": "b6ab15f85edacf98b40ff8e1a287fcaf56e024c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/b6ab15f85edacf98b40ff8e1a287fcaf56e024c2",
+                "reference": "b6ab15f85edacf98b40ff8e1a287fcaf56e024c2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RedBeanPHP\\": "RedBeanPHP"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabor@redbeanphp.com",
+                    "homepage": "https://redbeanphp.com"
+                }
+            ],
+            "description": "RedBeanPHP ORM",
+            "homepage": "https://redbeanphp.com/",
+            "keywords": [
+                "orm"
+            ],
+            "support": {
+                "issues": "https://github.com/gabordemooij/redbean/issues",
+                "source": "https://github.com/gabordemooij/redbean/tree/master"
+            },
+            "time": "2022-11-12T08:03:22+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "gabordemooij/redbean": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

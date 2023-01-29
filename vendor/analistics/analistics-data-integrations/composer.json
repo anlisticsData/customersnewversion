@@ -1,0 +1,15 @@
+{
+    "name": "edi/plug-analistics",
+    "autoload": {
+        "psr-4": {
+            "PlugAnalistics\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "EdilsonCsilva",
+            "email": "analisticsdataprojetos@gmail.com"
+        }
+    ],
+    "require": {}
+}
