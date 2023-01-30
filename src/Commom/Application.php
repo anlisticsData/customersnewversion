@@ -14,7 +14,7 @@ class Application implements ApplicationInterface{
         $this->request = $request;
    }
 
-   public function request(){
+   public function Request(){
     return $this->request;
    }
 

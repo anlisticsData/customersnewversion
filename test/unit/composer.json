@@ -1,0 +1,17 @@
+{
+    "name": "edi/unit",
+    "autoload": {
+        "psr-4": {
+            "Edi\\Unit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "EdilsonCsilva",
+            "email": "analisticsdataprojetos@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
