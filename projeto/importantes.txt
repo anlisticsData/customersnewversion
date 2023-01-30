@@ -1,3 +1,10 @@
+//modelo de leitura
+{ "l1":2,"l1":2,"l1":2,"l1":2,"ldr":6.76,"umidade":56.87}
+
+
+
+
+
 <?php
         require_once(__DIR__."./layouts/header.php");
     ?>
