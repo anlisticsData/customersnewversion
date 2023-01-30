@@ -5,8 +5,7 @@ use Exception;
 class CurlAdapter implements HttpInterface{
     private $header =  [];
     private $headerResponse = null;
-    private $agent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)';
-
+    
 
     function setHeader($type,$valor){
         $this->header[]=sprintf("%s:%s",$type,$valor);
@@ -45,11 +44,6 @@ class CurlAdapter implements HttpInterface{
             curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true); 
             curl_setopt($curl, CURLOPT_HTTPHEADER,$this->header);   
-            curl_setopt($curl,CURLOPT_TIMEOUT,1000);
-            curl_setopt($curl, CURLOPT_USERAGENT, $this->agent);
-
-
-
             $response=curl_exec($curl);
             $this->setHeaderResponse(curl_getinfo($curl));
             curl_close($curl);
@@ -73,10 +67,6 @@ class CurlAdapter implements HttpInterface{
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);   
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);                                                 
             curl_setopt($curl, CURLOPT_HTTPHEADER,$this->header);   
-            curl_setopt($curl,CURLOPT_TIMEOUT,1000);
-            curl_setopt($curl, CURLOPT_USERAGENT, $this->agent);
-
-
             $response = curl_exec($curl);         
             $this->setHeaderResponse(curl_getinfo($curl));
             curl_close($curl);                                     

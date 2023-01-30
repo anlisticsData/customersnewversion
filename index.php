@@ -8,7 +8,7 @@ require_once(__DIR__ . "/InitApplications.php");
 
 <head>
     <?php
-    require_once(__DIR__ . "./layouts/header.php");
+    require_once(__DIR__ . "/layouts/header.php");
     ?>
 </head>
 
@@ -17,7 +17,7 @@ require_once(__DIR__ . "/InitApplications.php");
 
     <?php  
         if(isset($_SESSION["APLICATION_RESPONSE"])){
-            require_once(__DIR__."./components/modalOk.php");
+            require_once(__DIR__."/components/modalOk.php");
             unset($_SESSION["APLICATION_RESPONSE"]);
         }
     ?>

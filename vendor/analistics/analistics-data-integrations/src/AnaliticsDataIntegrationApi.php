@@ -32,13 +32,9 @@ class AnaliticsDataIntegrationApi{
     }
 
     public function loginIn($user,$password){
-		
         $data = array("login"=>$user,"password"=>$password);
         $this->user =  $this->httpService->postUrlencoded(sprintf("%s/%s",$this->url_api,$this->serviceApi->oauth),$data,$this->tokenLoginIn);
-
-	
-
-	   return $this->activeUser();
+        return $this->activeUser();
      }
 
     public function activeUser(){

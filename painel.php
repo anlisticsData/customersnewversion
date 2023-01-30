@@ -12,7 +12,7 @@ $DashboardController = new DashboardController($_SESSION['API_ANALISTICS_USER'])
 
 <head>
     <?php
-         require_once(__DIR__ . "./layouts/header.php");
+         require_once(__DIR__ . "/layouts/header.php");
     ?>
 </head>
 <body class="">
