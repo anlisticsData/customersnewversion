@@ -59,7 +59,7 @@ require_once(__DIR__ . "/InitApplications.php");
 
 
     <?php
-    require_once(__DIR__ . "./layouts/footer.base.php");
+    require_once(__DIR__ . "/layouts/footer.base.php");
     ?>
 
   
