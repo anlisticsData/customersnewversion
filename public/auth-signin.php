@@ -1,13 +1,7 @@
 <?php
 
-use Analistics\Customers\Commom\Application;
 use RedBeanPHP\R;
-use PlugAnalistics\EndPointsServices;
-use Analistics\Customers\Commom\HttpRequest;
-use PlugAnalistics\AnaliticsDataIntegrationApi;
-require_once(__DIR__."./../vendor/autoload.php");
-require_once(__DIR__."./../rb.php");
-$App =  new Application(new HttpRequest());
+require_once(__DIR__."./../Application.php");
 $request = $App->Request()->getAll();
 try{
     if(isset($request['SERVER_SOFTWARE_AUTH'])){
@@ -25,7 +19,7 @@ try{
     if($App->hasErrors()){
         $_SESSION["APLICATION_RESPONSE"]=array(
             "hasError" => $App->hasErrors(),
-            "messagens" => $errors,
+            "messagens" => $App->getErrors(),
             "sessionType" => 0
         );
         header("location:../index");
