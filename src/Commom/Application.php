@@ -13,6 +13,11 @@ class Application implements ApplicationInterface{
    
 
 
+   public function Redirect($pager){
+     header("location:".$pager);die;
+   }
+
+
    public function __construct($request,$lib)
    {
         $this->request = $request;

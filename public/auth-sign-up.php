@@ -36,8 +36,7 @@ try{
     if(strlen(trim($out->api->jwt)) > 0){
         $_SESSION['API_ANALISTICS_USER']=serialize($out);
         $_SESSION['API_ANALISTICS_JWT']=$out->api->jwt;
-        header("location:../painel");
-        die;
+        $App->Redirect("../painel");
     }else{
         $App->logError("Email Ou  Senha  inválidos..!");
     }
@@ -52,8 +51,7 @@ try{
             "messagens" => $App->getErrors(),
             "sessionType" => 0
         );
-        header("location:../index");
-        die;
+        $App->Redirect("../index");
     }
 
 }

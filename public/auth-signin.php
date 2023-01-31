@@ -11,7 +11,7 @@ try{
         $token->limit=9999;
         R::store( $token );
         session_destroy();
-        header("location:../index");die;
+        $App->Redirect("../index");
     }
    
 }catch(Exception $e){
@@ -22,8 +22,7 @@ try{
             "messagens" => $App->getErrors(),
             "sessionType" => 0
         );
-        header("location:../index");
-        die;
+        $App->Redirect("../index");
     }
 }
 
