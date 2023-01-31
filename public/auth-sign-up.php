@@ -32,6 +32,8 @@ try{
     $APIAnalistics  =   new AnaliticsDataIntegrationApi(new EndPointsServices(),"123456789","http://localhost/smdataanlystic/public");
     $APIAnalistics->loginIn($request["email"],$request['password']);
     $out = $APIAnalistics->activeUser();
+
+   
     if(strlen(trim($out->api->jwt)) > 0){
         $_SESSION['API_ANALISTICS_USER']=serialize($out);
         $_SESSION['API_ANALISTICS_JWT']=$out->api->jwt;
@@ -43,7 +45,7 @@ try{
 
     throw new Exception("#Error ao Tentar Logar Na Api (Analistics.)",401);
 }catch(Exception $e){
-    
+  
     $errors[]=$e->getMessage();
     if(count($errors) > 0){
         $_SESSION["APLICATION_RESPONSE"]=array(

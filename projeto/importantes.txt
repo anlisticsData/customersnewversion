@@ -3,6 +3,57 @@
 
 
 
+//atualizar na api 
+
+public static function detectBrowser() {
+    if(empty($_SERVER['HTTP_USER_AGENT'])) {
+        return array(
+            'name' => 'unrecognized',
+            'version' => 'unknown',
+            'platform' => 'unrecognized',
+            'userAgent' => ''
+        );
+    }
+
+    // your old code here
+}
+
+
+  public static function jwtToken($email, $ip_ = "", $acl = "", $exp = "")
+    {
+        $HTTP_USER_AGENT =null;
+        if(empty($_SERVER['HTTP_USER_AGENT'])) {
+            $HTTP_USER_AGENT=array(
+                'name' => 'unrecognized',
+                'version' => 'unknown',
+                'platform' => 'unrecognized',
+                'userAgent' => ''
+                );
+        }
+        $key = "TESTE";
+        $header = [
+            'typ' => 'JWT',
+            'alg' => 'HS256'
+        ];
+        $header = base64_encode(json_encode($header));
+        $payload = [
+            'iss' => Settings::$TOKEN_UUID_INSTALL,
+            'ip' => "",
+            'acl' => $acl,
+            'email' => $email,
+            'agent' => $HTTP_USER_AGENT ,
+            'exp'  => (strlen(trim($exp)) == 0) ? Libs::strTotimeDay() : $exp
+        ];
+        $payload = base64_encode(json_encode($payload));
+        $signarute = hash_hmac('sha256', "$header.$payload", $key, true);
+        $signarute = base64_encode($signarute);
+
+        $token = "$header.$payload.$signarute";
+        return $token;
+    }
+
+
+
 
 
 <?php

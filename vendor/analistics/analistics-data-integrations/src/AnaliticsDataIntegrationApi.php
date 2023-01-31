@@ -78,15 +78,9 @@ class AnaliticsDataIntegrationApi{
                     
                 }
             }
-
-           
-           
-
-
-
             return $userCast;
         }catch(Exception $e){
-            throw new Exception('Not Cast Json in User.('.$e->getMessage().')',500);
+            throw new Exception('#Error ao Tentar Logar Na Api (Analistics.)',$e->getCode());
         }
     }
 
