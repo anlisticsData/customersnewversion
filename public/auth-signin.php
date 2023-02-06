@@ -1,5 +1,7 @@
 <?php
 
+use Analistics\Customers\Commom\Dtos\AlertMessage;
+use Analistics\Customers\Commom\Message;
 use RedBeanPHP\R;
 require_once(__DIR__."./../Application.php");
 $request = $App->Request()->getAll();
@@ -17,11 +19,9 @@ try{
 }catch(Exception $e){
     $App->logError($e->getMessage());
     if($App->hasErrors()){
-        $_SESSION["APLICATION_RESPONSE"]=array(
-            "hasError" => $App->hasErrors(),
-            "messagens" => $App->getErrors(),
-            "sessionType" => 0
-        );
+        $dialog = new Message();
+        $dialog->push(new AlertMessage($App->getErrors(),$App->hasErrors()));
+        $App->Session()->flash("APLICATION_RESPONSE",$dialog);
         $App->Redirect("../index");
     }
 }

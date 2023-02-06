@@ -8,7 +8,7 @@ class Application implements ApplicationInterface{
    private  $errors=[];
    private  $request =null;
    private  $lib =null;
-   private  $http =null;
+   private  $session =null;
 
    
 
@@ -18,13 +18,18 @@ class Application implements ApplicationInterface{
    }
 
 
-   public function __construct($request,$lib)
+   public function __construct($request,$lib,$session)
    {
         $this->request = $request;
         $this->lib = $lib;
-        
+        $this->session = $session;
    }
 
+
+   public function Session(){
+    return $this->session;
+   }
+   
    public function Request(){
     return $this->request;
    }

@@ -2,7 +2,9 @@
 
 use RedBeanPHP\R;
 use PlugAnalistics\EndPointsServices;
+use Analistics\Customers\Commom\Message;
 use PlugAnalistics\AnaliticsDataIntegrationApi;
+use Analistics\Customers\Commom\Dtos\AlertMessage;
 require_once(__DIR__."./../Application.php");
 $request = $App->Request()->getAll();
 
@@ -31,28 +33,23 @@ try{
     $APIAnalistics  =   new AnaliticsDataIntegrationApi(new EndPointsServices(),"123456789","http://localhost/smdataanlystic/public");
     $APIAnalistics->loginIn($request["email"],$request['password']);
     $out = $APIAnalistics->activeUser();
-
-   
     if(strlen(trim($out->api->jwt)) > 0){
-        $_SESSION['API_ANALISTICS_USER']=serialize($out);
-        $_SESSION['API_ANALISTICS_JWT']=$out->api->jwt;
+         $App->Session()->add('API_ANALISTICS_USER',serialize($out));
+         $App->Session()->add('API_ANALISTICS_JWT',$out->api->jwt);
         $App->Redirect("../painel");
     }else{
         $App->logError("Email Ou  Senha  inválidos..!");
     }
-
     throw new Exception("#Error ao Tentar Logar Na Api (Analistics.)",401);
 }catch(Exception $e){
   
     $App->logError($e->getMessage());
     if($App->hasErrors()){
-        $_SESSION["APLICATION_RESPONSE"]=array(
-            "hasError" =>  $App->hasErrors(),
-            "messagens" => $App->getErrors(),
-            "sessionType" => 0
-        );
+        $dialog = new Message();
+        $dialog->push(new AlertMessage($App->getErrors(),$App->hasErrors()));
+        $App->Session()->flash("APLICATION_RESPONSE",$dialog);
         $App->Redirect("../index");
-    }
+     }
 
 }
 

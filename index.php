@@ -1,6 +1,7 @@
 <?php
  
 require_once(__DIR__ . "/InitApplications.php");
+require_once(__DIR__."/Application.php");
 
 ?>
 <!DOCTYPE html>
@@ -16,9 +17,9 @@ require_once(__DIR__ . "/InitApplications.php");
 
 
     <?php  
-        if(isset($_SESSION["APLICATION_RESPONSE"])){
+         
+        if($App->Session()->get("APLICATION_RESPONSE")){
             require_once(__DIR__."/components/modalOk.php");
-            unset($_SESSION["APLICATION_RESPONSE"]);
         }
     ?>
 

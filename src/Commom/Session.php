@@ -5,13 +5,20 @@ class Session{
 
     function __construct()
     {
-        session_start();
+        if(!isset($_SESSION)){
+            session_start();
+        }
         session_regenerate_id();
     }
     public function add($type,$value){
         $_SESSION[$type]=$value;
        
     }
+
+    public function flash($type,$value){
+        $_SESSION[$type]=array("sessionType"=>"flash-session","value"=>$value);
+    }
+
 
     public function delete($type){
 
@@ -27,15 +34,22 @@ class Session{
         session_destroy();
     }
 
-    public function get($type){
-       
+    public function get($type,$clear=false){
         if(isset($_SESSION[$type])){
-            
+            if(isset($_SESSION[$type]['sessionType']) && $_SESSION[$type]['sessionType']=='flash-session'){
+                $value=$_SESSION[$type];
+                if($clear){
+                    $this->delete($type);
+                }
+                return $value;
+            }
             return $_SESSION[$type];
         }
         return null;
       
     }
+
+
 
 
 
