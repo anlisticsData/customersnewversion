@@ -1,7 +1,12 @@
 <?php
 
 namespace Analistics\Customers\Commom;
-class Functions{}
+class Functions{
+
+    public function Equals($base,$value){
+        return strpos(basename($base),$value);
+    }
+}
 
 
 ?>
