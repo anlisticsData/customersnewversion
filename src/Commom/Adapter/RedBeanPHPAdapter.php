@@ -12,7 +12,9 @@ class RedBeanPHPAdapter implements ConnectionInterface{
 
     public  function __construct()
     {
-        R::setup('mysql:host=localhost;dbname=anlcustomers','dev','@Dev1234');
+        if(!R::testConnection()){
+          R::setup('mysql:host=localhost;dbname=anlcustomers','dev','@Dev1234');
+        }
     }
     public function insert($sql,$params=[]){
         R::exec($sql,$params);
@@ -20,7 +22,7 @@ class RedBeanPHPAdapter implements ConnectionInterface{
     }
     public function delete($id){}
     public function update($sql,$params=[]){
-
+        R::exec($sql,$params);
     }
     public function select($sql,$params=[]){
         if(is_null($params)){

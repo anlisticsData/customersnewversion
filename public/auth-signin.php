@@ -1,21 +1,19 @@
 <?php
 
-use Analistics\Customers\Commom\Dtos\AlertMessage;
-use Analistics\Customers\Commom\Message;
 use RedBeanPHP\R;
+use Analistics\Customers\Commom\Message;
+use Analistics\Customers\Commom\Dtos\AlertMessage;
+use Analistics\Customers\Commom\Adapter\RedBeanPHPAdapter;
+use Analistics\Customers\TokenManegement\TokenDataBaseRepository;
 require_once(__DIR__."./../Application.php");
 $request = $App->Request()->getAll();
 try{
     if(isset($request['SERVER_SOFTWARE_AUTH'])){
-        $token = R::findOne('tokens',' tokenlocal = ? ',array( $_SESSION['SERVER_SOFTWARE_AUTH']));
-        $token->timestrtotime =999999999999;
-        $token->update_at = R::isoDateTime();
-        $token->limit=9999;
-        R::store( $token );
+        $TokenRepository = new TokenDataBaseRepository(new RedBeanPHPAdapter());
+        $TokenRepository->closeSession($_SESSION['SERVER_SOFTWARE_AUTH']);
         session_destroy();
         $App->Redirect("../index");
     }
-   
 }catch(Exception $e){
     $App->logError($e->getMessage());
     if($App->hasErrors()){

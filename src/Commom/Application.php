@@ -9,8 +9,31 @@ class Application implements ApplicationInterface{
    private  $request =null;
    private  $lib =null;
    private  $session =null;
+   private  $apis =null;
+   
 
    
+
+   public function __construct($request,$lib,$session,$apis=null)
+   {
+        $this->request = $request;
+        $this->lib = $lib;
+        $this->session = $session;
+        $this->apis = $apis;
+   }
+
+
+
+  public function Auth($token=null){
+     
+  }
+
+
+
+  public function Apis($codeApi=null){
+    return  (!is_null($codeApi)) ? $this->apis->getApiBy($codeApi):$this->apis;
+  }
+
 
 
    public function Redirect($pager){
@@ -18,12 +41,7 @@ class Application implements ApplicationInterface{
    }
 
 
-   public function __construct($request,$lib,$session)
-   {
-        $this->request = $request;
-        $this->lib = $lib;
-        $this->session = $session;
-   }
+ 
 
 
    public function Session(){

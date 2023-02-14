@@ -46,7 +46,22 @@ class TokenDataBaseRepository implements TokenRepositoryInterface{
         return $this->getBy($tokenData);
     }
     public function  update($id,$tokenDto){}
+
+    public function registerAccessToken($appId,$token,$limitInative){
+        $params =[];
+        array_push($params,$appId,$token,$limitInative,strtotime(date('Y/m/d H:m:s'))); 
+        $tokenData =$this->connection->insert("insert into tokens (tipo, tokenlocal,`limit`, timestrtotime, created_at) values(?,?,?,?,now())",$params);
+        return $this->getBy($tokenData);
+       
+    }
+
+    public function closeSession($token){
+        $params =[];
+        array_push($params,999999999999,9999,strtotime(date('Y/m/d H:m:s')),$token); 
+        $this->connection->update("update tokens set timestrtotime=?, `limit`=?,timestrtotime=? where tokenlocal=?",$params);
+        return true;
+       
+    }
+
 }
-
-
 ?>
