@@ -1,6 +1,6 @@
 <?php
  
-require_once(__DIR__ . "/InitApplications.php");
+//require_once(__DIR__ . "/InitApplications.php");
 require_once(__DIR__."/Application.php");
 
 ?>

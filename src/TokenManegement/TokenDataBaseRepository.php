@@ -63,5 +63,21 @@ class TokenDataBaseRepository implements TokenRepositoryInterface{
        
     }
 
+
+    public function validateToken($token){
+        $tokenData=$this->getByToken($token);
+        if(is_null($tokenData)) return false;
+        $time = strtotime(date('Y/m/d H:m:s')) - intval($tokenData->timestrtotime);
+        if($time > $tokenData->limit){
+            return false;
+        }
+        $params =[];
+        array_push($params,strtotime(date('Y/m/d H:m:s')),$token); 
+        $this->connection->update("update tokens set timestrtotime=?,update_at=now()  where tokenlocal=?",$params);
+        return true;
+    }
+
+
+
 }
 ?>

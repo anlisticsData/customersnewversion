@@ -2,6 +2,7 @@
 
 namespace Analistics\Customers\Commom;
 
+use Analistics\Customers\Commom\Jwt;
 use Analistics\Customers\Commom\Contracts\ApplicationInterface;
 
 class Application implements ApplicationInterface{
@@ -10,7 +11,7 @@ class Application implements ApplicationInterface{
    private  $lib =null;
    private  $session =null;
    private  $apis =null;
-   
+   private  $jwt = null;
 
    
 
@@ -20,6 +21,7 @@ class Application implements ApplicationInterface{
         $this->lib = $lib;
         $this->session = $session;
         $this->apis = $apis;
+        $this->jwt = new Jwt("3218670456456das456d4as4das1xc1as891x89as9121231315648946sa55s5as4a1x15");
    }
 
 
@@ -41,7 +43,9 @@ class Application implements ApplicationInterface{
    }
 
 
- 
+  public function getJwt(){
+    return $this->jwt;
+  }
 
 
    public function Session(){

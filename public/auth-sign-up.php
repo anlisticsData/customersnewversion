@@ -16,10 +16,11 @@ try{
     if(!isset($request['password']) || strlen(trim($request['password']))=== 0 ){
         $App->logError("Senha da Conta  inválidas..!");
     }
-    
+
+    $errors=$App->getErrors();
     if(!isset($request['SERVER_SOFTWARE_AUTH']) && count($errors)==0){
         $TokenRepository = new TokenDataBaseRepository(new RedBeanPHPAdapter());
-        $request['SERVER_SOFTWARE_AUTH']=$Jwt->generateToken(array("name"=>APP_ID,"uuid"=>uniqid()));
+        $request['SERVER_SOFTWARE_AUTH']=$App->getJwt()->generateToken(array("name"=>APP_ID,"uuid"=>uniqid()));
         $TokenData = $TokenRepository->registerAccessToken(APP_ID, $request['SERVER_SOFTWARE_AUTH'],APP_LIMIT_INATIVO_TOKEN);
         if($TokenData){
             $_SESSION['SERVER_SOFTWARE_AUTH']=$request['SERVER_SOFTWARE_AUTH'];
@@ -27,9 +28,12 @@ try{
      }
     $ApisController = new ApisController($App->Apis());
     $out=$ApisController->loginInAnaliticsData($request["email"],$request['password'],API_ANALISTICS);
+
+    
     if(strlen(trim($out->api->jwt)) > 0){
          $App->Session()->add('API_ANALISTICS_USER',serialize($out));
          $App->Session()->add('API_ANALISTICS_JWT',$out->api->jwt);
+    
          $App->Redirect("../painel");
     }else{
         $App->logError("Email Ou  Senha  inválidos..!");

@@ -1,7 +1,6 @@
 <?php
 
 use Analistics\Customers\DashboardManegement\DashboardController;
-require_once(__DIR__."/InitApplications.php");
 require_once(__DIR__."/Application.php");
 $DashboardController = new DashboardController($App->Session()->get('API_ANALISTICS_USER'));
 
