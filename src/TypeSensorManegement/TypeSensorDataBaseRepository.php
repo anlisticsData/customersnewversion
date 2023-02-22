@@ -58,7 +58,7 @@ class TypeSensorDataBaseRepository implements TypeSensorRepositoryInterface {
     }
     public function  getAllPagination($params=[]){
         $typeSensorDataCount = $this->connection->select("select count(*) as `total`   from type_sensors",null);
-        $paginatorClass =  new Pagination((isset($typeSensorDataCount[0]['total']) ? $typeSensorDataCount[0]['total']:0 ),$params['pager'],3,3);
+        $paginatorClass =  new Pagination((isset($typeSensorDataCount[0]['total']) ? $typeSensorDataCount[0]['total']:0 ),$params['pager'],3,2);
         $this->paginatorClassLinks = $paginatorClass->links();
         $params_=array($this->paginatorClassLinks['initial'],$this->paginatorClassLinks['end']);
         $tokenData = $this->connection->select("select id, description, `type`, observation, created_at  from type_sensors  limit ?,?",$params_);

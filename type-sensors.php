@@ -9,7 +9,7 @@ try{
 
     $params=array(
         "pager"=>(isset($request['pager'])) ? $request['pager']:1,
-        "max_links"=>3,
+        "max_links"=>2,
         
 
     );
