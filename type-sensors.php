@@ -6,9 +6,19 @@ require_once(__DIR__."/Application.php");
 try{
     $DashboardController = new DashboardController($App->Session()->get('API_ANALISTICS_USER'));
     $TypeSensorDataBaseRepository =  new TypeSensorDataBaseRepository($connection);
-    $typeSensorsData=$TypeSensorDataBaseRepository->getAll();
-  
- 
+
+    $params=array(
+        "pager"=>(isset($request['pager'])) ? $request['pager']:1,
+        "max_links"=>3,
+        
+
+    );
+    $typeSensorsData=$TypeSensorDataBaseRepository->getAllPagination($params);
+    $paginar =$TypeSensorDataBaseRepository->getLinksPaginator();
+
+    
+    
+   // print_r(["<pre>",$paginar]);die;
     
 ?>
 <!DOCTYPE html>
@@ -164,11 +174,15 @@ try{
                                 <div class="col-12">
                                     <nav class="float-rigth">
                                         <ul class="pagination ">
-                                            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                                            <?php if(($paginar['pager_active']-1) > 0){ ?>
+                                                <li class="page-item"><a class="page-link" href="type-sensors?pager=<?php echo ($paginar['pager_active']-1);?>">Anterior</a></li>
+                                            <?php }?>
+                                            <?php for($nextPagernation=1; $nextPagernation <= count($paginar['next_pager']);$nextPagernation++){ ?>
+                                                <li class="page-item <?php if($paginar['pager_active']==$nextPagernation){ echo 'active'; } ?>"><a class="page-link" href="type-sensors?pager=<?php echo $nextPagernation;?>"><?php echo $nextPagernation;?></a></li>
+                                            <?php } ?>
+                                            <?php if(($paginar['end']) < $paginar['pages']){ ?>
+                                                <li class="page-item"><a class="page-link" href="type-sensors?pager=<?php echo ($paginar['pager_active']+1);?>">Próximo</a></li>
+                                            <?php } ?>
                                         </ul>
                                     </nav>
                                 </div>

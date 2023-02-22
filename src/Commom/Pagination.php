@@ -7,15 +7,16 @@ class Pagination{
 	private $limit;
 	private $maxLinks;
 	private $pager=0;
-	private $queryPagination="";
+	 
+	 
 
 
-	public function __construct($totalPager,$pager,$queryPagination="",$limit=10,$maxLinks=2){
+	public function __construct($totalPager,$pager,$limit=10,$maxLinks=2){
 		$this->totalPager =  $totalPager;
 		$this->limit=$limit;
 		$this->maxLinks = $maxLinks;
 		$this->pager=$pager;
-		$this->queryPagination =$queryPagination;
+		 
 	}
 
 	public function calculatePaginationLinks(){
@@ -39,6 +40,7 @@ class Pagination{
 			"pager"	 =>$this->pager,
 			"pager_active"=>0,
 			"next_pager"=>array(),
+			"pages" =>$this->totalPager
 		);
 		$limit = $this->endPaginationLink();
 		$paginar["limit"] =$limit ;
