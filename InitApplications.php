@@ -17,10 +17,6 @@ error_reporting(E_ALL);
 
 require_once(__DIR__."/rb.php");
 
-
-
-//print_r(basename($_SERVER['SCRIPT_NAME']));die;
-
 if( strpos(basename($_SERVER['SCRIPT_NAME']),'index')===false  
     &&  strpos(basename($_SERVER['SCRIPT_NAME']),'auth-sign-up')===false 
     &&  strpos(basename($_SERVER['SCRIPT_NAME']),'auth-signup')===false  ){

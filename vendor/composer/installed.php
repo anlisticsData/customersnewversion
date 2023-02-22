@@ -3,7 +3,7 @@
         'name' => 'edi/analistics-v4',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3b975fbb2eb61b2f4952521c920ea0cc71136b2c',
+        'reference' => '2269bbb299b33e08068f88ff401613419ab5f462',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'edi/analistics-v4' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3b975fbb2eb61b2f4952521c920ea0cc71136b2c',
+            'reference' => '2269bbb299b33e08068f88ff401613419ab5f462',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

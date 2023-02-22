@@ -8,5 +8,8 @@
     "require": {
         "gabordemooij/redbean": "dev-master",
         "analistics/analistics-data-integrations": "^1.2"
+    },
+    "config":{
+        "optimize-autoloader":true
     }
 }

@@ -1,0 +1,58 @@
+/*
+teset
+*/
+
+
+require(__DIR__."/SerializerInterface.php");
+require(__DIR__."/Serializer.php");
+require(__DIR__."./SensorTypeDto.php");
+$type =  new SensorTypeDto();
+$type3 =  new SensorTypeDto();
+$type->description="Sensor A";
+$type->type="U";
+$type->observation="Este e um teste de Transporte de Dados em sessão..!";
+$type->createdAt=date("Y-m-d h:m:s");
+echo "<pre>";
+$type =$type->serializer();
+//print_r($type);
+$type1 =(new SensorTypeDto())->deserializer($type);	
+print_r($type1);
+
+
+
+
+/*paginação*/
+
+
+// total de páginas
+$total = 50;
+ 
+// número máximo de links da paginação
+$max_links = 10;
+ 
+ 
+// página corrente
+$pagina = 3;
+ 
+// calcula quantos links haverá à esquerda e à direita da página corrente
+// usa-se ceil() para assegurar que o número será inteiro
+$links_laterais = ceil($max_links / 2);
+ 
+// variáveis para o loop
+$inicio = $pagina - $links_laterais;
+$limite = $pagina + $links_laterais;
+ 
+for ($i = $inicio; $i <= $limite; $i++)
+{
+ if ($i == $pagina)
+ {
+  echo " <strong>" . $i . "</strong> ";
+ }
+ else
+ {
+  if ($i >= 1 && $i <= $total)
+  {
+   echo " <a href=\"paginacao.php?pagina=" . $i . "\">" . $i . "</a> ";
+  }
+ }
+}

@@ -30174,3 +30174,51 @@ new-task label input[type=checkbox] {
 }
 
 /**====== user card css end ======**/
+
+
+
+
+
+
+
+
+/*meus estilos*/
+
+ 
+
+.cr{
+    border:1px solid #000;
+    background-color:rgba(52,41,125,0.3);
+}
+
+.float-rigth{
+    float:right;
+    clear:both;
+}
+
+ .doNotExceed{
+    overflow: hidden !important;
+
+ }       
+ .center-object{
+    margin:0 auto !important;
+ }
+
+
+ .details{
+    width: 142px;
+    border: 1px solid #000000;
+    word-break: break-all;
+   
+}
+
+ 
+
+ 
+
+
+
+
+
+
+

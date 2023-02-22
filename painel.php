@@ -1,11 +1,9 @@
 <?php
 
 use Analistics\Customers\DashboardManegement\DashboardController;
-
-
-require_once(__DIR__."/InitApplications.php");
-$DashboardController = new DashboardController($_SESSION['API_ANALISTICS_USER']);
-
+require_once(__DIR__."/Application.php");
+try{
+    $DashboardController = new DashboardController($App->Session()->get('API_ANALISTICS_USER'));
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -737,3 +735,12 @@ $DashboardController = new DashboardController($_SESSION['API_ANALISTICS_USER'])
 </body>
 
 </html>
+
+<?php
+
+}catch(Exception $e){
+    echo sprintf("<h1>%s</h1>",$e->getMessage());
+    exit;
+}
+
+?>

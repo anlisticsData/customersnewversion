@@ -2,11 +2,12 @@
 if (basename($_SERVER['SCRIPT_NAME']) == basename(__FILE__)) {
 	header("location:../index.php");
 	die();
+
 }
 
+if(($App->Session()->get("APLICATION_RESPONSE"))['value']->size() !=0){
+$sessionValue =$App->Session()->get("APLICATION_RESPONSE",true);    
 ?>
-
-
 <div id="exampleModalLive" class="modal fade   " tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 17px;" aria-modal="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -16,10 +17,12 @@ if (basename($_SERVER['SCRIPT_NAME']) == basename(__FILE__)) {
                 </div>
                 <div class="modal-body">
                     <p class="mb-0"><b>Erros Encontrados</b></p>
-                    <?php foreach($_SESSION["APLICATION_RESPONSE"]['messagens'] as $values ){ ?>
-                        <p class="mb-0"><?php  echo $values; ?></p>
-                    <?php } ?>    
-                    <?php unset($_SESSION["APLICATION_RESPONSE"]);?>
+                    <?php while($sessionValue['value']->size() !=0){ ?>
+                    <?php     $item =(array) $sessionValue['value']->pop(); ?>
+                    <?php     foreach($item['messages'] as $value){        ?>
+                    <?php       echo sprintf("<p class=\"mb-0\">%s</p>",$value);   ?>
+                    <?php     } ?>                        
+                    <?php  }    ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn  btn-secondary" data-dismiss="modal">Close</button>
@@ -32,5 +35,7 @@ if (basename($_SERVER['SCRIPT_NAME']) == basename(__FILE__)) {
         $('#exampleModalLive').modal('toggle')
      })
     </script>
+
+<?php } ?>    
 
 
