@@ -2,6 +2,7 @@
 
 namespace Analistics\Customers\Commom;
 
+use Exception;
 use Analistics\Customers\Commom\Jwt;
 use Analistics\Customers\Commom\Contracts\ApplicationInterface;
 
@@ -15,8 +16,16 @@ class Application implements ApplicationInterface{
 
    
 
-   public function __construct($request,$lib,$session,$apis=null)
+
+   private  $resources=[];
+
+   
+
+   public function __construct($request,$lib,$session,$apis=null,$resources=[])
    {
+
+   
+        $this->resources=$resources;
         $this->request = $request;
         $this->lib = $lib;
         $this->session = $session;
@@ -31,6 +40,30 @@ class Application implements ApplicationInterface{
   }
 
 
+
+  public function getResources($type){
+     return (isset($this->resources[$type])) ? $this->resources[$type] : null;
+  }
+
+
+
+
+  public function getLanguage($type){
+
+    
+
+    foreach($this->resources as $index=>$strValue){
+        $resource =$strValue->stringResource($type);
+        if($resource){
+            return $resource;
+        }
+    }
+     
+ 
+
+  }
+
+  
 
   public function Apis($codeApi=null){
     return  (!is_null($codeApi)) ? $this->apis->getApiBy($codeApi):$this->apis;

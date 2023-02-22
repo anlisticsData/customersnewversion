@@ -10,6 +10,7 @@ $user = $MenusController->getUser();
 $dws = $MenusController->getDws();
 $extractors = $MenusController->getExtractor();
 $meusIndicadores = $MenusController->meusIndicadores();
+$menus=$App->getResources("menus"); 
 
  
 
@@ -37,12 +38,25 @@ $meusIndicadores = $MenusController->meusIndicadores();
 				</div>
 				
 				<ul class="nav pcoded-inner-navbar ">
-					<li class="nav-item pcoded-menu-caption">
-						<label>Navigation</label>
-					</li>
-					<li class="nav-item">
-					    <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
-					</li>
+					
+					<?php foreach($menus as $indexMenu => $menu){ 
+						if($menu->section!=0) break;
+						if($indexMenu==0){
+						?>
+							<li class="nav-item pcoded-menu-caption">
+								<label>Navigation</label>
+							</li>
+
+					   <?php
+						}
+						?>
+							<li class="nav-item">
+								<a href="<?php echo $menu->url;?>" title="<?php echo $menu->title;?>" class="nav-link ">
+								<span class="pcoded-micon"><?php echo $menu->ico;?></span><span class="pcoded-mtext">
+									<?php echo $menu->description;?></span></a>
+							</li>
+					<?php }?>
+
 					
 					<?php if(count($meusIndicadores)>0){ ?>
 					<li class="nav-item pcoded-hasmenu">
@@ -66,21 +80,54 @@ $meusIndicadores = $MenusController->meusIndicadores();
 						<label>Ações</label>
 					</li>
 					<li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Sistema</span></a>
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Consultas</span></a>
 						<ul class="pcoded-submenu">
-							<li><a href="bc_alert.html">Alert</a></li>
+							<li><a href="type-sensors">Tipos de Sensores</a></li>
+							<li><a href="cut-readers">Sensores de Corte</a></li>
+							<li><a href="areas">Áreas (Andares + Áreas)</a></li>
+							
+						</ul>
+						
+					</li>
+
+
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Cadastros</span></a>
+						<ul class="pcoded-submenu">
+						    <li><a href="new-type-sensors">Tipos de Sensores</a></li>
+							<li><a href="new-cut-readers">Sensor de Corte</a></li>
+							<li><a href="new-areas">Área</a></li>
+							<li><a href="new-floors">Andares</a></li>
+							
+							 
 						</ul>
 					</li>
 
 
 					<li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Criações</span></a>
+						<a href="#!" class="nav-link "><span class="pcoded-micon">
+						<i class="icon feather icon-file-text text-c-blue mb-1 d-block"></i>
+						</span><span class="pcoded-mtext">Criações</span></a>
 						<ul class="pcoded-submenu">
 							<li><a href="bc_alert.html">Alert</a></li>
 							<li><a href="bc_button.html">Button</a></li>
 							 
+							 
 						</ul>
 					</li>
+
+
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Re</span></a>
+						<ul class="pcoded-submenu">
+							<li><a href="bc_alert.html">Alert</a></li>
+							<li><a href="bc_button.html">Button</a></li>
+							 
+							 
+						</ul>
+					</li>
+
+
 
 					<?php
 					if(count($dws) > 0){

@@ -4,7 +4,7 @@ namespace Analistics\Customers\Commom;
 class Response{
     private $status=200;
     private $messagens=[];
-    function __construct(){}
+    function __construct(){return $this;}
     public function json($status,$dataSend){
         header("HTTP/1.1 ".$status);
         header('Content-Type: application/json');

@@ -1,3 +1,12 @@
+Links
+**************************************************************************
+https://redbeanphp.com/manual3_0/index.php?p=/manual3_0/finding_beans
+https://redbeanphp.com/index.php?p=/crud
+
+
+
+
+
 //modelo de leitura
 { "l1":2,"l1":2,"l1":2,"l1":2,"ldr":6.76,"umidade":56.87}
 
@@ -71,9 +80,3 @@ public static function detectBrowser() {
  
 
 echo "<pre>";print_r([]);die;
-
-
-https://redbeanphp.com/manual3_0/index.php?p=/manual3_0/finding_beans
-
-
-https://redbeanphp.com/index.php?p=/crud

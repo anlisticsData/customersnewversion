@@ -4,10 +4,27 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
+<<<<<<< HEAD
 use Analistics\Customers\Commom\Adapter\RedBeanPHPAdapter;
 use Analistics\Customers\TokenManegement\Dtos\TokenDto;
 use Analistics\Customers\TokenManegement\TokenDataBaseRepository;
 
+=======
+ 
+ 
+ 
+
+
+ 
+use Analistics\Customers\TokenManegement\Dtos\TokenDto;
+use Analistics\Customers\Commom\Resources\LanguageValues;
+use Analistics\Customers\Commom\Adapter\RedBeanPHPAdapter;
+use Analistics\Customers\TokenManegement\TokenDataBaseRepository;
+
+ 
+
+
+>>>>>>> 3499d656ba2a8ae9ac78c7c80cb16b8178f77230
 require_once(__DIR__."./../vendor/autoload.php");
 
 $TokenDataBaseRepository = new TokenDataBaseRepository(new RedBeanPHPAdapter());
@@ -25,5 +42,10 @@ $tokenData3 = $TokenDataBaseRepository->getByToken($r);
 $t = $TokenDataBaseRepository->save(new TokenDto(null,"teste","AAAA",87,123));
 print_r([$TokenDataBaseRepository,$tokenData1,$tokenData2,$tokenData3,$t] );
 
+<<<<<<< HEAD
+=======
+ $d =  new LanguageValues();
+
+>>>>>>> 3499d656ba2a8ae9ac78c7c80cb16b8178f77230
 
 ?>

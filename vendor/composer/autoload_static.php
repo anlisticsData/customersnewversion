@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc68489463ffa57774817985c23decad6
+class ComposerStaticInit07866bd7e43721d2578980132b0b19d4
 {
     public static $prefixLengthsPsr4 = array (
         'R' => 
@@ -37,15 +37,113 @@ class ComposerStaticInitc68489463ffa57774817985c23decad6
     );
 
     public static $classMap = array (
+        'Analistics\\Customers\\AuthManegement\\AuthController' => __DIR__ . '/../..' . '/src/AuthManegement/AuthController.php',
+        'Analistics\\Customers\\Commom\\Adapter\\RedBeanPHPAdapter' => __DIR__ . '/../..' . '/src/Commom/Adapter/RedBeanPHPAdapter.php',
+        'Analistics\\Customers\\Commom\\Api' => __DIR__ . '/../..' . '/src/Commom/Api.php',
+        'Analistics\\Customers\\Commom\\ApiArrays' => __DIR__ . '/../..' . '/src/Commom/ApiArrays.php',
+        'Analistics\\Customers\\Commom\\Application' => __DIR__ . '/../..' . '/src/Commom/Application.php',
+        'Analistics\\Customers\\Commom\\ApplicationBase' => __DIR__ . '/../..' . '/src/Commom/ApplicationBase.php',
+        'Analistics\\Customers\\Commom\\ContentValues' => __DIR__ . '/../..' . '/src/Commom/ContentValues.php',
+        'Analistics\\Customers\\Commom\\Contracts\\ApplicationInterface' => __DIR__ . '/../..' . '/src/Commom/Contracts/ApplicationInterface.php',
+        'Analistics\\Customers\\Commom\\Contracts\\ApplicationMessageInterface' => __DIR__ . '/../..' . '/src/Commom/Contracts/ApplicationMessageInterface.php',
+        'Analistics\\Customers\\Commom\\Contracts\\ConnectionInterface' => __DIR__ . '/../..' . '/src/Commom/Contracts/ConnectionInterface.php',
+        'Analistics\\Customers\\Commom\\Contracts\\HttpInterface' => __DIR__ . '/../..' . '/src/Commom/Contracts/HttpInterface.php',
+        'Analistics\\Customers\\Commom\\Contracts\\MessageInterface' => __DIR__ . '/../..' . '/src/Commom/Contracts/MessageInterface.php',
+        'Analistics\\Customers\\Commom\\Controller\\ApisController' => __DIR__ . '/../..' . '/src/Commom/Controller/ApisController.php',
+        'Analistics\\Customers\\Commom\\Dtos\\AlertMessage' => __DIR__ . '/../..' . '/src/Commom/Dtos/AlertMessage.php',
+        'Analistics\\Customers\\Commom\\Dtos\\ConfigItem' => __DIR__ . '/../..' . '/src/Commom/Dtos/ConfigItem.php',
+        'Analistics\\Customers\\Commom\\Functions' => __DIR__ . '/../..' . '/src/Commom/Functions.php',
+        'Analistics\\Customers\\Commom\\HttpRequest' => __DIR__ . '/../..' . '/src/Commom/HttpRequest.php',
+        'Analistics\\Customers\\Commom\\Jwt' => __DIR__ . '/../..' . '/src/Commom/Jwt.php',
+        'Analistics\\Customers\\Commom\\Message' => __DIR__ . '/../..' . '/src/Commom/Message.php',
+        'Analistics\\Customers\\Commom\\Repository\\TokenRepositoryInterface' => __DIR__ . '/../..' . '/src/Commom/Repository/TokenRepositoryInterface.php',
+        'Analistics\\Customers\\Commom\\Resources\\LanguageValues' => __DIR__ . '/../..' . '/src/Commom/Resources/LanguageValues.php',
+        'Analistics\\Customers\\Commom\\Response' => __DIR__ . '/../..' . '/src/Commom/Response.php',
+        'Analistics\\Customers\\Commom\\Session' => __DIR__ . '/../..' . '/src/Commom/Session.php',
+        'Analistics\\Customers\\DashboardManegement\\DashboardController' => __DIR__ . '/../..' . '/src/DashboardManegement/DashboardController.php',
+        'Analistics\\Customers\\MenusManegement\\MenusController' => __DIR__ . '/../..' . '/src/MenusManegement/MenusController.php',
+        'Analistics\\Customers\\TokenManegement\\Dtos\\TokenDto' => __DIR__ . '/../..' . '/src/TokenManegement/Dtos/TokenDto.php',
+        'Analistics\\Customers\\TokenManegement\\TokenDataBaseRepository' => __DIR__ . '/../..' . '/src/TokenManegement/TokenDataBaseRepository.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PlugAnalistics\\Access' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/Access.php',
+        'PlugAnalistics\\AnaliticsDataIntegration' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/AnaliticsDataIntegration.php',
+        'PlugAnalistics\\AnaliticsDataIntegrationApi' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/AnaliticsDataIntegrationApi.php',
+        'PlugAnalistics\\Api' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/Api.php',
+        'PlugAnalistics\\ApiResponse' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/ApiResponse.php',
+        'PlugAnalistics\\Company' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/Company.php',
+        'PlugAnalistics\\CurlAdapter' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/CurlAdapter.php',
+        'PlugAnalistics\\CustomersService' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/CustomersService.php',
+        'PlugAnalistics\\DomainEntityCastInterface' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/DomainEntityCastInterface.php',
+        'PlugAnalistics\\Dw' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/Dw.php',
+        'PlugAnalistics\\EndPointsServices' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/EndPointsServices.php',
+        'PlugAnalistics\\Extractors' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/Extractors.php',
+        'PlugAnalistics\\HttpInterface' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/HttpInterface.php',
+        'PlugAnalistics\\Resources' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/Resources.php',
+        'PlugAnalistics\\StringApp' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/StringApp.php',
+        'PlugAnalistics\\User' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/User.php',
+        'PlugAnalistics\\Uteis' => __DIR__ . '/..' . '/analistics/analistics-data-integrations/src/Uteis.php',
+        'RedBeanPHP\\Adapter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Adapter.php',
+        'RedBeanPHP\\Adapter\\DBAdapter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Adapter/DBAdapter.php',
+        'RedBeanPHP\\AssociationManager' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/AssociationManager.php',
+        'RedBeanPHP\\BeanCollection' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/BeanCollection.php',
+        'RedBeanPHP\\BeanHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/BeanHelper.php',
+        'RedBeanPHP\\BeanHelper\\DynamicBeanHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/BeanHelper/DynamicBeanHelper.php',
+        'RedBeanPHP\\BeanHelper\\SimpleFacadeBeanHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/BeanHelper/SimpleFacadeBeanHelper.php',
+        'RedBeanPHP\\Cursor' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Cursor.php',
+        'RedBeanPHP\\Cursor\\NullCursor' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Cursor/NullCursor.php',
+        'RedBeanPHP\\Cursor\\PDOCursor' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Cursor/PDOCursor.php',
+        'RedBeanPHP\\Driver' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Driver.php',
+        'RedBeanPHP\\Driver\\RPDO' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Driver/RPDO.php',
+        'RedBeanPHP\\DuplicationManager' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/DuplicationManager.php',
+        'RedBeanPHP\\Facade' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Facade.php',
+        'RedBeanPHP\\Finder' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Finder.php',
+        'RedBeanPHP\\LabelMaker' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/LabelMaker.php',
+        'RedBeanPHP\\Logger' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Logger.php',
+        'RedBeanPHP\\Logger\\RDefault' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Logger/RDefault.php',
+        'RedBeanPHP\\Logger\\RDefault\\Debug' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Logger/RDefault/Debug.php',
+        'RedBeanPHP\\OODB' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/OODB.php',
+        'RedBeanPHP\\OODBBean' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/OODBBean.php',
+        'RedBeanPHP\\Observable' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Observable.php',
+        'RedBeanPHP\\Observer' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Observer.php',
+        'RedBeanPHP\\Plugin' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Plugin.php',
+        'RedBeanPHP\\QueryWriter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter.php',
+        'RedBeanPHP\\QueryWriter\\AQueryWriter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/AQueryWriter.php',
+        'RedBeanPHP\\QueryWriter\\CUBRID' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/CUBRID.php',
+        'RedBeanPHP\\QueryWriter\\Firebird' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/Firebird.php',
+        'RedBeanPHP\\QueryWriter\\MySQL' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/MySQL.php',
+        'RedBeanPHP\\QueryWriter\\PostgreSQL' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/PostgreSQL.php',
+        'RedBeanPHP\\QueryWriter\\SQLiteT' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/SQLiteT.php',
+        'RedBeanPHP\\R' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/R.php',
+        'RedBeanPHP\\RedException' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/RedException.php',
+        'RedBeanPHP\\RedException\\SQL' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/RedException/SQL.php',
+        'RedBeanPHP\\Repository' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Repository.php',
+        'RedBeanPHP\\Repository\\Fluid' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Repository/Fluid.php',
+        'RedBeanPHP\\Repository\\Frozen' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Repository/Frozen.php',
+        'RedBeanPHP\\SimpleModel' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/SimpleModel.php',
+        'RedBeanPHP\\SimpleModelHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/SimpleModelHelper.php',
+        'RedBeanPHP\\TagManager' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/TagManager.php',
+        'RedBeanPHP\\ToolBox' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/ToolBox.php',
+        'RedBeanPHP\\TypedModel' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/TypedModel.php',
+        'RedBeanPHP\\Util\\ArrayTool' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/ArrayTool.php',
+        'RedBeanPHP\\Util\\Diff' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Diff.php',
+        'RedBeanPHP\\Util\\DispenseHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/DispenseHelper.php',
+        'RedBeanPHP\\Util\\Dump' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Dump.php',
+        'RedBeanPHP\\Util\\Either' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Either.php',
+        'RedBeanPHP\\Util\\Feature' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Feature.php',
+        'RedBeanPHP\\Util\\Look' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Look.php',
+        'RedBeanPHP\\Util\\MatchUp' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/MatchUp.php',
+        'RedBeanPHP\\Util\\MultiLoader' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/MultiLoader.php',
+        'RedBeanPHP\\Util\\QuickExport' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/QuickExport.php',
+        'RedBeanPHP\\Util\\Transaction' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Transaction.php',
+        'RedBeanPHP\\Util\\Tree' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Tree.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc68489463ffa57774817985c23decad6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc68489463ffa57774817985c23decad6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc68489463ffa57774817985c23decad6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit07866bd7e43721d2578980132b0b19d4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit07866bd7e43721d2578980132b0b19d4::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit07866bd7e43721d2578980132b0b19d4::$classMap;
 
         }, null, ClassLoader::class);
     }
