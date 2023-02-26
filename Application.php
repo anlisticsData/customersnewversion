@@ -12,9 +12,16 @@ use Analistics\Customers\Commom\ApplicationMenus;
 use Analistics\Customers\Commom\Resources\LanguageValues;
 use Analistics\Customers\Commom\Adapter\RedBeanPHPAdapter;
 use Analistics\Customers\TokenManegement\TokenDataBaseRepository;
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+
+
+
+ini_set('display_errors',1);
+ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
+
+
+
+ 
 if (basename($_SERVER['SCRIPT_NAME']) == basename(__FILE__)) {
 	header("location:index.php");
 	die();

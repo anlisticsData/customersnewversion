@@ -20,9 +20,13 @@ class RedBeanPHPAdapter implements ConnectionInterface{
         R::exec($sql,$params);
         return R::getInsertID();
     }
-    public function delete($id){}
+     
+    public function delete($sql,$params=[]){
+        return R::exec($sql,$params);
+    }
     public function update($sql,$params=[]){
-        R::exec($sql,$params);
+      
+       return R::exec($sql,$params);
     }
     public function select($sql,$params=[]){
         if(is_null($params)){

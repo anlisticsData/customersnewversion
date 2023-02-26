@@ -49,7 +49,7 @@ class Pagination{
 			if ($nextLink == $this->pager){
 				$paginar["pager_active"] = $nextLink;
 			 }else{
-				  if ($nextLink >= 1 && $nextLink <= $this->totalPager){
+				  if ($nextLink >  1 && $nextLink < $this->totalPager){
 				   $paginar["next_pager"][] = $nextLink;
 				  }
 		 	}

@@ -1,10 +1,15 @@
 <?php
 
 use Analistics\Customers\DashboardManegement\DashboardController;
+use Analistics\Customers\TypeSensorManegement\TypeSensorDataBaseRepository;
 
 require_once(__DIR__ . "/Application.php");
 try {
     $DashboardController = new DashboardController($App->Session()->get('API_ANALISTICS_USER'));
+    $TypeSensorDataBaseRepository =  new TypeSensorDataBaseRepository($connection);
+    $typeSensorsData = $TypeSensorDataBaseRepository->getAll();
+
+    
 ?>
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -72,22 +77,36 @@ try {
                                 <div class="row ">
                                 <div class="col-xl-12 col-md-12 doNotExceed "  >
                                     <div   > 
-                                        <form class="col-xl-9 col-md-9 center-object  p-5 "  >
+                                        <form class="col-xl-9 col-md-9 center-object  p-5 " action="public/new-cut-readers" method="post" >
+                                            <input type="hidden" name="jwt" value="<?php  echo $request['SERVER_SOFTWARE_AUTH'];?>" >
+                                            <input type="hidden" name="crsf" value="<?php echo uniqid();?>" >
+
+
+                                        <div class="form-group">
+                                            <label for="typeSensorSelect"><b>Selecione o Tipo de Sensor</b></label>
+                                            <select id="typeSensorSelect" name="typesensor" class="form-control">
+                                                <option selected="">Selecione o Tipo de Sensor</option>
+                                                <?php 
+                                                    foreach($typeSensorsData as $indexTypeSensor =>$sensorType){
+                                                            echo sprintf("<option value=\"$sensorType->id\" >($sensorType->id)  $sensorType->description</option>");
+                                                    }
+                                                ?>
+                                              
+                                            </select>
+                                        </div>
+
+
+
+
                                             <div class="form-group">
-                                                <label for="exampleFormControlInput1"><b>Descrição do Tipo de Sensor</b></label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Descreva o Tipo do Sensor..!">
+                                                <label for="description"><b>Descrição do Tipo de Sensor</b></label>
+                                                <input type="text" class="form-control" id="description" name="description" placeholder="Descreva o Tipo do Sensor..!">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1"><b>Uso do Sensor </b></label>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option>Unico</option>
-                                                    <option>Geral</option>
-                                                </select>
-                                            </div>
+                                          
                                          
                                             <div class="form-group">
-                                                <label for="exampleFormControlTextarea1"><b>Detalhes do Tipo de Sensor</b></label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                                <label for="observation"><b>Detalhes do Tipo de Sensor</b></label>
+                                                <textarea class="form-control" name="observation" id="observation" rows="6"></textarea>
                                             </div>
 
                                             <div class="form-group">
@@ -97,7 +116,7 @@ try {
                                             <div class="form-group  " >
                                                 <button class="btn btn-info float-rigth "    >
                                                     <i class="feather icon-box"></i>
-                                                    Criar Novo tipo
+                                                    Criar Novo Sensor
                                                 </button>
                                             </div>
 

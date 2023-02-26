@@ -9,25 +9,19 @@ use Analistics\Customers\TypeSensorManegement\TypeSensorDataBaseRepository;
 require_once(__DIR__."./../Application.php");
 $erros=[];
 $sensorTypeDto =  new SensorTypeDto();
-try{
-    if(!isset($request['description']) || strlen(trim($request['description']))==0){
-        $erros[]=array("input-id"=>"description","error"=>"Nome do Tipo Inválido");
-    }
-    if(!isset($request['observation']) || strlen(trim($request['observation']))==0){
-        $erros[]=array("input-id"=>"observation","error"=>"Observação do Tipo Inválido");
-    }
-    $request['observation'] =str_replace(array("\"", "\'"), ' ', strip_tags($request['observation']));
-    
 
-    $sensorTypeDto->setModeles($request,['description','type','observation']); 
+try{
+    if(!isset($request['uuid']) || strlen(trim($request['uuid']))==0){
+        $erros[]=array("error"=>"Codigo do Tipo de Sensor inválido.");
+    }
+   
     if(count($erros) > 0){
         $session->flash("errors",$erros);
-        $session->flash("classObject",$sensorTypeDto->serializer());
-        $App->Redirect("../new-type-sensors");
+        $App->Redirect("../type-sensors");
     }
     
     $TypeSensorDataBaseRepository =  new TypeSensorDataBaseRepository($connection);
-    if($TypeSensorDataBaseRepository->save($sensorTypeDto)){
+    if($TypeSensorDataBaseRepository->delete($request['uuid'])){
         $App->Redirect("../type-sensors");
     }
 }catch(Exception $e){ 

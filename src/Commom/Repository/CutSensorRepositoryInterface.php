@@ -1,7 +1,7 @@
 <?php
 namespace Analistics\Customers\Commom\Repository;
 
-interface TypeSensorRepositoryInterface{
+interface CutSensorRepositoryInterface{
     public function  save($typeSensorDto);
     public function  getBy($id);
     public function  getAll($params=[]);
